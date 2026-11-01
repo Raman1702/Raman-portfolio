@@ -1,0 +1,57 @@
+.tech-text {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+/* The real text reserves its original inline box; canvas is decorative ink. */
+.tech-heading {
+  display: inline-block;
+  position: relative;
+  vertical-align: baseline;
+  font: inherit;
+  letter-spacing: inherit;
+  white-space: inherit;
+}
+
+.tech-heading-baseline {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  vertical-align: baseline;
+}
+
+.tech-heading-effect {
+  position: absolute;
+  display: block;
+  opacity: 0;
+}
+
+.tech-heading[data-tech-ready="true"] > .tech-heading-text {
+  opacity: 0;
+}
+
+.tech-heading[data-tech-ready="true"] > .tech-heading-effect {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce), (hover: none), (pointer: coarse) {
+  .tech-heading > .tech-heading-text,
+  .tech-heading[data-tech-ready="true"] > .tech-heading-text {
+    opacity: 1;
+  }
+
+  .tech-heading > .tech-heading-effect {
+    display: none;
+  }
+}
+
+.tech-text-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

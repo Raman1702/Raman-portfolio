@@ -1,0 +1,5 @@
+/* Expand the paint clip, not the line box: preserve the native wrapping,
+   baseline and spacing while allowing italic bearings and descenders. */
+.paragraph-line-mask {
+  overflow-clip-margin: 0.15em;
+}

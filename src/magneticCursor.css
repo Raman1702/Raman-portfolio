@@ -1,0 +1,32 @@
+.magnetic-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+  will-change: transform;
+}
+
+.magnetic-cursor-surface {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* The class exists only after a mouse moves. Removing it restores each
+   element's authored cursor, including calendar days and text fields. */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  html.magnetic-cursor-active,
+  html.magnetic-cursor-active * {
+    cursor: none !important;
+  }
+}
+
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .magnetic-cursor {
+    display: none;
+  }
+}

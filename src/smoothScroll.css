@@ -1,0 +1,4 @@
+/* Lenis owns easing while active; native touch and keyboard remain available. */
+html.lenis {
+  scroll-behavior: auto;
+}

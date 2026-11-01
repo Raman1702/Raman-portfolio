@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" data-startup="pending">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Raman Ahalawat — software engineer in Bengaluru building full-stack applications, generative AI, and reliable systems."
+    />
+    <meta name="theme-color" content="#f1f1f1" />
+    <link rel="preload" href="/fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin />
+    <style>
+      html { background: #f1f1f1; scrollbar-gutter: stable; }
+      body { margin: 0; }
+      html[data-startup="pending"] #root { opacity: 0; }
+      #startup-screen { position: fixed; inset: 0; z-index: 1000; background: #f1f1f1; pointer-events: none; }
+      #startup-screen[hidden] { display: none; }
+      .startup-grid { width: var(--frame, 75%); height: 100%; margin-inline: auto; position: relative; }
+      .startup-grid > i { position: absolute; top: 0; bottom: 0; width: 1px; background: rgba(24, 24, 24, .12); transform: scaleY(0); transform-origin: top; animation: draw-startup-line .7s cubic-bezier(.22, 1, .36, 1) forwards; }
+      .startup-grid > i:nth-child(1) { left: 0; }
+      .startup-grid > i:nth-child(2) { left: calc(100% / 3); animation-delay: .06s; }
+      .startup-grid > i:nth-child(3) { left: calc(200% / 3); animation-delay: .12s; }
+      .startup-grid > i:nth-child(4) { left: 100%; animation-delay: .18s; }
+      @keyframes draw-startup-line { to { transform: scaleY(1); } }
+      @media (min-width: 1700px) { .startup-grid { width: var(--frame, 70%); } }
+      @media (max-width: 1050px) { .startup-grid { width: var(--frame, 82%); } }
+      @media (max-width: 809px) { .startup-grid { width: var(--frame, calc(100% - 32px)); } }
+      @media (prefers-reduced-motion: reduce) { .startup-grid > i { animation: none; transform: none; } }
+    </style>
+    <title>Raman Ahalawat — Software Engineer</title>
+  </head>
+  <body>
+    <div id="startup-screen" role="status" aria-label="Loading portfolio">
+      <div class="startup-grid" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    </div>
+    <div id="root" inert aria-busy="true"></div>
+    <noscript><style>#startup-screen { display: none; }</style><p>Raman Ahalawat — software engineer. <a href="mailto:singhraman1702@gmail.com">Contact Raman</a></p></noscript>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
